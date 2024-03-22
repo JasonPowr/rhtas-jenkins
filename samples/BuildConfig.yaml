@@ -1,0 +1,24 @@
+# apiVersion: build.openshift.io/v1
+# kind: BuildConfig
+# metadata:
+#   labels:
+#     app.kubernetes.io/name: app-name
+#   name: app-name
+# spec:
+#   output:
+#     to:
+#       kind: DockerImage
+#       name: image name eg. <repo>/<username>/<name>:<tag>
+#   source:
+#     # Expect a local directory to be streamed to OpenShift as a build source
+#     type: Binary
+#     binary: {}
+#   strategy:
+#     type: Docker
+#     dockerStrategy:
+#       # Find the image build instructions in <path/to/Dockerfile>
+#       dockerfilePath: <path/to/Dockerfile>
+
+
+# oc create secret docker-registry my-secret --docker-server=quay.io --docker-username=xxxx  --docker-password=xxx
+# oc secrets link builder my-secret --for=mount
